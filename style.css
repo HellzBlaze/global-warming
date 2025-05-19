@@ -1,0 +1,328 @@
+/* --- Root Variables for Colors (Light & Dark) --- */
+:root {
+    /* Light Mode Colors */
+    --bg-color-light: #f4f7f6; /* Very light grey */
+    --text-color-light: #333;
+    --header-bg-light: #2b8a63; /* Muted Teal/Green */
+    --header-text-light: #ecf0f1; /* Light grey */
+    --toc-bg-light: #e0f2f7; /* Light Blue/Cyan */
+    --toc-text-light: #34495e; /* Dark blue/grey */
+    --toc-border-light: #bdc3c7;
+    --content-bg-light: #ffffff;
+    --heading-color-light: #2c3e50; /* Dark blue/grey */
+    --subheading-color-light: #556a7e;
+    --link-color-light: #3498db; /* Blue */
+    --link-hover-light: #2980b9; /* Darker blue */
+    --border-separator-light: #bdc3c7;
+    --footer-text-light: #777;
+    --button-bg-light: #3498db;
+    --button-text-light: #ffffff;
+    --button-hover-light: #2980b9;
+    --box-shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Dark Mode Colors (Applied when body has class 'dark-mode') --- */
+body.dark-mode {
+    --bg-color-light: #1a1a2e; /* Deep Purple/Blue */
+    --text-color-light: #c0c0d0; /* Light Grey/Purple */
+    --header-bg-light: #1f3a4f; /* Dark Blue */
+    --header-text-light: #e0e0f0; /* Lighter grey */
+    --toc-bg-light: #2a2a4a; /* Darker Purple/Blue */
+    --toc-text-light: #b0b0c0; /* Light Grey */
+    --toc-border-light: #444466;
+    --content-bg-light: #22223b; /* Dark Purple */
+    --heading-color-light: #87ceeb; /* Sky Blue */
+    --subheading-color-light: #a0c4ff; /* Lighter Blue */
+    --link-color-light: #98c1d9; /* Desaturated Blue */
+    --link-hover-light: #e0fbff; /* Very light blue */
+    --border-separator-light: #444466;
+    --footer-text-light: #a0a0b0;
+    --button-bg-light: #5a67a3; /* Muted Purple */
+    --button-text-light: #e0e0f0;
+    --button-hover-light: #455080;
+    --box-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.3); /* Adjust shadow for dark */
+}
+
+
+/* --- General Body and Layout --- */
+body {
+    font-family: 'Merriweather', serif; /* Serif for body text */
+    line-height: 1.7; /* Increased line height for readability */
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color-light); /* Use variable */
+    color: var(--text-color-light); /* Use variable */
+    transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition */
+}
+
+.container {
+    max-width: 1200px; /* Increased max width */
+    margin: 0 auto; /* Center container */
+    padding: 0 20px; /* Add padding on sides */
+}
+
+/* --- Header --- */
+.report-header {
+    background-color: var(--header-bg-light); /* Use variable */
+    color: var(--header-text-light); /* Use variable */
+    padding: 50px 20px; /* More padding */
+    text-align: center;
+    margin-bottom: 30px; /* More space below header */
+}
+
+.report-header h1 {
+    margin-top: 0;
+    font-size: 2.5em; /* Larger heading */
+    font-family: 'Open Sans', sans-serif; /* Sans-serif for headings */
+    margin-bottom: 10px;
+}
+
+.report-header .prepared-info,
+.report-header .date-info {
+    margin-bottom: 5px;
+    font-size: 1.1em;
+    opacity: 0.9; /* Slightly less prominent */
+}
+
+.report-header .dark-mode-toggle {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--button-bg-light); /* Use variable */
+    color: var(--button-text-light); /* Use variable */
+    transition: background-color 0.3s ease;
+}
+
+.report-header .dark-mode-toggle:hover {
+    background-color: var(--button-hover-light); /* Use variable */
+}
+
+/* --- Page Layout (TOC + Content) --- */
+.page-layout {
+    display: flex; /* Use flexbox for layout */
+    gap: 30px; /* Space between TOC and content */
+    align-items: flex-start; /* Align items to the top */
+}
+
+/* --- Table of Contents --- */
+.table-of-contents {
+    flex-basis: 280px; /* Fixed width for TOC */
+    flex-shrink: 0; /* Prevent shrinking */
+    padding: 20px;
+    background-color: var(--toc-bg-light); /* Use variable */
+    color: var(--toc-text-light); /* Use variable */
+    border-radius: 8px; /* More rounded corners */
+    box-shadow: var(--box-shadow-light); /* Use variable */
+    position: sticky;
+    top: 30px; /* Stick slightly lower */
+    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.table-of-contents h2 {
+    margin-top: 0;
+    font-size: 1.4em;
+    font-family: 'Open Sans', sans-serif;
+    border-bottom: 1px solid var(--toc-border-light); /* Use variable */
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+}
+
+.table-of-contents ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.table-of-contents li {
+    margin-bottom: 10px;
+}
+
+.table-of-contents a {
+    text-decoration: none;
+    color: var(--link-color-light); /* Use variable */
+    display: block;
+    padding: 5px 0; /* More clickable area */
+    transition: color 0.3s ease;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+}
+
+.table-of-contents a:hover {
+    color: var(--link-hover-light); /* Use variable */
+    text-decoration: underline;
+}
+
+/* --- Main Content Area --- */
+.report-content {
+    flex-grow: 1; /* Allow content to take up remaining space */
+    padding: 30px; /* More padding */
+    background-color: var(--content-bg-light); /* Use variable */
+    color: var(--text-color-light); /* Use variable */
+    border-radius: 8px; /* More rounded corners */
+    box-shadow: var(--box-shadow-light); /* Use variable */
+    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.report-content section {
+    margin-bottom: 50px; /* More space between sections */
+    padding-bottom: 30px;
+    border-bottom: 1px dashed var(--border-separator-light); /* Use variable */
+}
+
+.report-content section:last-child {
+    border-bottom: none;
+    margin-bottom: 0; /* No margin after last section */
+    padding-bottom: 0;
+}
+
+.report-content h2 {
+    color: var(--heading-color-light); /* Use variable */
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 0;
+    margin-bottom: 20px; /* More space below heading */
+    font-size: 1.8em;
+    line-height: 1.3;
+}
+
+.report-content h3 {
+    color: var(--subheading-color-light); /* Use variable */
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 30px; /* More space above subheading */
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+.report-content p {
+    margin-bottom: 20px; /* More space between paragraphs */
+}
+
+.report-content ul {
+    margin-bottom: 20px; /* More space below lists */
+    padding-left: 25px; /* Indent list items */
+}
+
+.report-content ul ul {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+/* List item style (optional) */
+.report-content li {
+    margin-bottom: 8px;
+}
+
+/* --- Footer --- */
+.report-footer {
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 40px; /* More space above footer */
+    color: var(--footer-text-light); /* Use variable */
+    font-size: 0.9em;
+    border-top: 1px solid var(--border-separator-light); /* Add a top border */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    .page-layout {
+        flex-direction: column; /* Stack TOC and content vertically */
+        gap: 20px;
+    }
+
+    .table-of-contents {
+        flex-basis: auto; /* Remove fixed width */
+        width: 100%; /* Take full width */
+        position: static; /* Remove sticky positioning */
+        margin-bottom: 0;
+        border-radius: 0;
+        box-shadow: none; /* Less emphasis when stacked */
+        padding: 15px 20px; /* Adjust padding */
+    }
+
+     .table-of-contents h2 {
+        text-align: center;
+        padding-bottom: 8px;
+        margin-bottom: 10px;
+    }
+
+    .table-of-contents ul {
+        display: flex; /* Arrange TOC items horizontally */
+        flex-wrap: wrap; /* Allow wrapping */
+        justify-content: center; /* Center horizontally */
+    }
+
+    .table-of-contents li {
+         margin: 0 10px 8px 0; /* Space out horizontal items */
+         margin-bottom: 8px; /* Keep vertical space if wrapped */
+    }
+     .table-of-contents li:last-child {
+         margin-right: 0;
+    }
+
+
+    .report-content {
+        padding: 20px; /* Adjust padding */
+    }
+
+     .report-header h1 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 768px) {
+     .report-header {
+        padding: 30px 15px;
+    }
+
+     .report-header h1 {
+        font-size: 1.8em;
+    }
+     .report-header .prepared-info,
+     .report-header .date-info {
+        font-size: 0.9em;
+    }
+
+    .container {
+        padding: 0 15px; /* Reduce container padding */
+    }
+
+    .report-content {
+        padding: 15px;
+    }
+
+    .report-content h2 {
+        font-size: 1.6em;
+    }
+
+    .report-content h3 {
+        font-size: 1.3em;
+    }
+
+    .report-content section {
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+    }
+
+    .report-footer {
+        padding: 20px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+     .report-header h1 {
+        font-size: 1.5em;
+    }
+     .report-header .dark-mode-toggle {
+         font-size: 0.9em;
+         padding: 8px 15px;
+     }
+     .table-of-contents ul {
+         flex-direction: column; /* Stack TOC items vertically again */
+         align-items: center; /* Center vertically */
+     }
+      .table-of-contents li {
+          margin: 0 0 8px 0; /* Reset horizontal margin, add vertical */
+      }
+}
